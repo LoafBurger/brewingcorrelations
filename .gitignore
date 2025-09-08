@@ -1,0 +1,50 @@
+# -----------------------
+# Python
+# -----------------------
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+# Virtual environments
+.venv/
+venv/
+.env/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# -----------------------
+# Data files
+# -----------------------
+data/raw/*
+data/processed/*
+
+# Keep a README if needed
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+# -----------------------
+# OS files
+# -----------------------
+.DS_Store
+Thumbs.db
+
+# -----------------------
+# Conda / Pip
+# -----------------------
+*.egg-info/
+*.egg
+*.log
+*.sqlite
+*.db
+
+# -----------------------
+# VSCode / Neovim / IDEs
+# -----------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+
