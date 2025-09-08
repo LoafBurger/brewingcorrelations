@@ -1,3 +1,8 @@
+"""
+Order of running scripts:
+- extract, filter, enrich, prepare, tinker
+"""
+
 import pandas as pd
 
 #Load the flattened CSV
@@ -11,6 +16,8 @@ print(df.head())
 #List all columns
 print("\nColumns in the dataset:")
 print(df.columns.tolist())
+print(f"Number of Columns: {len(df.columns)}")
+
 
 #Example: get average review stars per city
 avg_stars_by_city = df.groupby("business_city")["stars"].mean().sort_values(ascending=False)
@@ -21,6 +28,7 @@ print(avg_stars_by_city)
 print("\nReview stars value counts:")
 print(df["stars"].value_counts())
 
+print()
 row = df.iloc[0]
 print(row)
 
