@@ -6,21 +6,35 @@ REVIEWS_FILE = "data/processed/starbucks_reviews.json"
 OUTPUT_FILE = "data/processed/starbucks_reviews_enriched.json"
 
 def load_business_info(business_file):
-    """Load business info into a dictionary keyed by business_id."""
+    """Load selected business info into a dictionary keyed by business_id."""
     lookup = {}
     with open(business_file, "r", encoding="utf-8") as f:
         for line in f:
-            biz = json.loads(line)
-            lookup[biz["business_id"]] = {
-                "name": biz["name"],
-                "address": biz["address"],
-                "city": biz["city"],
-                "state": biz["state"],
-                "postal_code": biz["postal_code"],
-                "stars": biz["stars"],
-                "review_count": biz["review_count"],
-                "is_open": biz["is_open"],
-                "attributes": biz.get("attributes", {})
+            business_entry = json.loads(line)
+            attributes = business_entry.get("attributes") or {}
+            lookup[business_entry["business_id"]] = {
+                "name": business_entry.get("name"),
+                "address": business_entry.get("address"),
+                "city": business_entry.get("city"),
+                "state": business_entry.get("state"),
+                "postal_code": business_entry.get("postal_code"),
+                "latitude": business_entry.get("latitude"),
+                "longitude": business_entry.get("longitude"),
+                "stars": business_entry.get("stars"),
+                "review_count": business_entry.get("review_count"),
+                "is_open": business_entry.get("is_open"),
+                "categories": business_entry.get("categories"),
+                "hours": business_entry.get("hours"),
+                "attributes": {
+                    "WiFi": attributes.get("WiFi"),
+                    "DriveThru": attributes.get("DriveThru"),
+                    "RestaurantsTakeOut": attributes.get("RestaurantsTakeOut"),
+                    "RestaurantsDelivery": attributes.get("RestaurantsDelivery"),
+                    "OutdoorSeating": attributes.get("OutdoorSeating"),
+                    "RestaurantsPriceRange2": attributes.get("RestaurantsPriceRange2"),
+                    "BusinessAcceptsCreditCards": attributes.get("BusinessAcceptsCreditCards"),
+                    "BikeParking": attributes.get("BikeParking"),
+                }
             }
     return lookup
 
