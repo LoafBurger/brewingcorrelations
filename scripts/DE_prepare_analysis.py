@@ -1,4 +1,3 @@
-import json
 import pandas as pd
 
 ENRICHED_JSON = "data/processed/starbucks_reviews_enriched.json"
