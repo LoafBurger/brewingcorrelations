@@ -5,6 +5,7 @@ BUSINESS_FILE = "data/processed/starbucks_businesses.json"
 REVIEWS_FILE = "data/processed/starbucks_reviews.json"
 OUTPUT_FILE = "data/processed/starbucks_reviews_enriched.json"
 
+
 def load_business_info(business_file):
     """Load selected business info into a dictionary keyed by business_id."""
     lookup = {}
@@ -32,17 +33,21 @@ def load_business_info(business_file):
                     "RestaurantsDelivery": attributes.get("RestaurantsDelivery"),
                     "OutdoorSeating": attributes.get("OutdoorSeating"),
                     "RestaurantsPriceRange2": attributes.get("RestaurantsPriceRange2"),
-                    "BusinessAcceptsCreditCards": attributes.get("BusinessAcceptsCreditCards"),
+                    "BusinessAcceptsCreditCards": attributes.get(
+                        "BusinessAcceptsCreditCards"
+                    ),
                     "BikeParking": attributes.get("BikeParking"),
-                }
+                },
             }
     return lookup
+
 
 def enrich_reviews(reviews_file, business_lookup, output_file):
     """Add business info to each review."""
     count = 0
-    with open(reviews_file, "r", encoding="utf-8") as infile, \
-         open(output_file, "w", encoding="utf-8") as outfile:
+    with open(reviews_file, "r", encoding="utf-8") as infile, open(
+        output_file, "w", encoding="utf-8"
+    ) as outfile:
         for line in infile:
             review = json.loads(line)
             biz_info = business_lookup.get(review["business_id"], {})
@@ -50,6 +55,7 @@ def enrich_reviews(reviews_file, business_lookup, output_file):
             outfile.write(json.dumps(review) + "\n")
             count += 1
     return count
+
 
 def main():
     print("Loading business info...")
@@ -60,6 +66,6 @@ def main():
     total_reviews = enrich_reviews(REVIEWS_FILE, business_lookup, OUTPUT_FILE)
     print(f"Enriched {total_reviews} reviews. Saved to {OUTPUT_FILE}")
 
+
 if __name__ == "__main__":
     main()
-
