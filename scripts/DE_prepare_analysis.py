@@ -8,10 +8,10 @@ def load_and_flatten(json_file):
     """Load enriched JSON and flatten business_info with readable prefix."""
     df = pd.read_json(json_file, lines=True)
 
-    # Flatten business_info with 'business_' prefix
+    # flatten business_info with 'business_' prefix
     biz_df = pd.json_normalize(df["business_info"]).add_prefix("business_")
 
-    # Drop original column and join
+    # drop original column and join
     df = df.drop(columns=["business_info"]).join(biz_df)
 
     return df

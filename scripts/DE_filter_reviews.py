@@ -1,6 +1,6 @@
 import json
 
-# File paths
+# file paths
 STARBUCKS_BUSINESS_FILE = "data/processed/starbucks_businesses.json"
 REVIEWS_FILE = "data/raw/yelp_academic_dataset_review.json"
 OUTPUT_FILE = "data/processed/starbucks_reviews.json"

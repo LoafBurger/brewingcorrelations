@@ -6,6 +6,10 @@ Order of running scripts:
     ├── DE_enrich_reviews.py
     ├── DE_prepare_analysis.py
     └── DS_tinkering_with_data.py
+
+RUN THIS WHEN YOU FIRST CLONE:
+pip install -r requirements.txt (helps get all the packages you need and the respective versions for standardization)
+run black scripts and flake8 scripts before you commit
 """
 
 import pandas as pd

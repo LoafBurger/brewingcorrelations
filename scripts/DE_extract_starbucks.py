@@ -1,6 +1,6 @@
 import json
 
-# File paths
+# file paths
 INPUT_FILE = "data/raw/yelp_academic_dataset_business.json"
 OUTPUT_FILE = "data/processed/starbucks_businesses.json"
 

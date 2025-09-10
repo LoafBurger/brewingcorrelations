@@ -1,6 +1,6 @@
 import json
 
-# File paths
+# file paths
 BUSINESS_FILE = "data/processed/starbucks_businesses.json"
 REVIEWS_FILE = "data/processed/starbucks_reviews.json"
 OUTPUT_FILE = "data/processed/starbucks_reviews_enriched.json"
