@@ -42,11 +42,3 @@ print(df["stars"].value_counts())
 print()
 row = df.iloc[0]
 print(row)
-
-# getting the timeline of the data, how many years of history (for the report)
-earliest_date = df["date"].min()
-latest_date = df["date"].max()
-
-print("\nDate range of the dataset:")
-print(f"Earliest: {earliest_date}")
-print(f"Latest:   {latest_date}")
