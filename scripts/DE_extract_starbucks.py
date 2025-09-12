@@ -11,9 +11,9 @@ def filter_starbucks_businesses(input_file, output_file):
     with open(input_file, "r", encoding="utf-8") as infile, open(
         output_file, "w", encoding="utf-8"
     ) as outfile:
-        for line in infile:
+        for line in infile:  # reads business dataset line by line, loads each json
             business = json.loads(line)
-            if "Starbucks" in business["name"]:
+            if "Starbucks" in business["name"]:  # keeps only Starbucks
                 outfile.write(json.dumps(business) + "\n")
                 count += 1
     return count

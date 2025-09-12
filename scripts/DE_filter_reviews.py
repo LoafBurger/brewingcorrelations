@@ -8,7 +8,7 @@ OUTPUT_FILE = "data/processed/starbucks_reviews.json"
 
 def load_starbucks_ids(business_file):
     """Load all Starbucks business IDs into a set."""
-    starbucks_ids = set()
+    starbucks_ids = set()  # keep only reviews that belong to Starbucks stores
     with open(business_file, "r", encoding="utf-8") as f:
         for line in f:
             business = json.loads(line)
@@ -21,7 +21,11 @@ def filter_reviews(reviews_file, starbucks_ids, output_file):
     with open(reviews_file, "r", encoding="utf-8") as infile, open(
         output_file, "w", encoding="utf-8"
     ) as outfile:
-        for line in infile:
+        for (
+            line
+        ) in (
+            infile
+        ):  # loads business IDs into a set and only reviews with bizid with starbucks
             review = json.loads(line)
             if review["business_id"] in starbucks_ids:
                 outfile.write(json.dumps(review) + "\n")

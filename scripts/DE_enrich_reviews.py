@@ -13,7 +13,7 @@ def load_business_info(business_file):
         for line in f:
             business_entry = json.loads(line)
             attributes = business_entry.get("attributes") or {}
-            lookup[business_entry["business_id"]] = {
+            lookup[business_entry["business_id"]] = {  # basic store info
                 "name": business_entry.get("name"),
                 "address": business_entry.get("address"),
                 "city": business_entry.get("city"),
@@ -26,7 +26,7 @@ def load_business_info(business_file):
                 "is_open": business_entry.get("is_open"),
                 "categories": business_entry.get("categories"),
                 "hours": business_entry.get("hours"),
-                "attributes": {
+                "attributes": {  # selected attributes
                     "WiFi": attributes.get("WiFi"),
                     "DriveThru": attributes.get("DriveThru"),
                     "RestaurantsTakeOut": attributes.get("RestaurantsTakeOut"),
@@ -51,7 +51,7 @@ def enrich_reviews(reviews_file, business_lookup, output_file):
         for line in infile:
             review = json.loads(line)
             biz_info = business_lookup.get(review["business_id"], {})
-            review["business_info"] = biz_info
+            review["business_info"] = biz_info  # attaching it as new info
             outfile.write(json.dumps(review) + "\n")
             count += 1
     return count
