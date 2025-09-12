@@ -1,8 +1,5 @@
-**Clone the repository**
-   ```bash
-   git clone https://github.com/your-username/your-repo-name.git
-   cd your-repo-name
+**THINGS TO DO AFTER CLONING REPO:**
 
-make sure to do pip install -r requirements.txt right after you clone
+1. Make sure to do **pip install -r requirements.txt** right after you clone to get necessary packages (might need to set up an environment first)
 
-Before pushing changes, always run black scripts and flake8 scripts
+2. Before pushing changes, always run **black scripts** and **flake8 scripts** to run the linter
