@@ -42,7 +42,15 @@ print(datetime_cols)
 # 2. check attribute value ranges
 # numeric attributes summary
 print("\nNumeric attribute ranges:")
-print(df[numeric_cols].describe())
+summary = df[numeric_cols].describe()
+
+print(summary)  # still prints to screen
+
+# save to CSV
+summary.to_csv("data/processed/numeric_attribute_summary.csv")
+
+# keep it as a DataFrame for later use
+summary_table = summary
 
 # categorical attributes summary
 print("\nCategorical attribute value counts (top 5 for each):")
