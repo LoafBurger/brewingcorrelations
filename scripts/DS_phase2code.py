@@ -72,3 +72,38 @@ sns.heatmap(correlation_matrix, annot=True, fmt=".2f", cmap="coolwarm")
 plt.title("Correlation Matrix of Numeric Attributes")
 plt.tight_layout()
 plt.show()
+
+# 4. value counts / frequency tables for specific columns
+"""
+i.e if a row in the csv says the following for the 'cool' column:
+cool,Count,Frequency
+0,17213,0.7918
+
+cool = 0 → these reviews received 0 "cool" votes.
+
+Count = 17213 → there are 17,213 reviews in your dataset where nobody clicked "cool."
+
+Frequency = 0.7918 → about 79.18% of all reviews fall into that category.
+"""
+columns_to_check = ["useful", "funny", "cool", "business_is_open"]
+
+for col in columns_to_check:
+    if col in df.columns:
+        print(f"\nValue counts for '{col}':")
+        counts = df[col].value_counts(dropna=False)
+        freqs = df[col].value_counts(normalize=True, dropna=False)
+
+        print(counts)
+        print("\nRelative frequencies:")
+        print(freqs)
+
+        # combine counts and frequencies into a single DataFrame
+        summary_df = pd.DataFrame({"Count": counts, "Frequency": freqs})
+
+        # save to CSV
+        output_file = f"data/processed/value_counts_{col}.csv"
+        summary_df.to_csv(output_file)
+        print(f"Saved to {output_file}")
+
+    else:
+        print(f"\nColumn '{col}' not found in dataset.")
