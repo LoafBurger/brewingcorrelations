@@ -4,6 +4,7 @@ Order of running scripts:
     ├── DE_extract_starbucks.py
     ├── DE_filter_reviews.py
     ├── DE_enrich_reviews.py
+    ├── DE_enrich_users.py
     ├── DE_prepare_analysis.py
     └── DS_tinkering_with_data.py
 
@@ -15,7 +16,7 @@ run black scripts and flake8 scripts before you commit
 import pandas as pd
 
 # load the flattened CSV
-csv_file = "data/processed/starbucks_reviews_flat.csv"
+csv_file = "data/processed/starbucks_reviews_flat_all.csv"
 df = pd.read_csv(csv_file)
 
 # see the first few rows
