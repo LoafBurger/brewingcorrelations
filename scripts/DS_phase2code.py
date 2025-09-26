@@ -18,7 +18,9 @@ print("\nDate range of the dataset:")
 print(f"Earliest: {earliest_date}")
 print(f"Latest:   {latest_date}")
 
+"""
 # 1. check attribute types
+"""
 # basic info about the dataset
 print(df.info())  # shows data types and missing values
 
@@ -39,7 +41,9 @@ datetime_cols = df.select_dtypes(include=["datetime64[ns]"]).columns.tolist()
 print("\nDatetime columns:")
 print(datetime_cols)
 
+"""
 # 2. check attribute value ranges
+"""
 # numeric attributes summary
 print("\nNumeric attribute ranges:")
 summary = df[numeric_cols].describe()
@@ -58,7 +62,9 @@ for col in categorical_cols:
     print(f"\nColumn: {col}")
     print(df[col].value_counts().head())
 
+"""
 # 3. check attribute correlations
+"""
 # compute correlation matrix for numeric attributes
 correlation_matrix = df[numeric_cols].corr()
 
@@ -73,8 +79,9 @@ plt.title("Correlation Matrix of Numeric Attributes")
 plt.tight_layout()
 plt.show()
 
-# 4. value counts / frequency tables for specific columns
 """
+# 4. value counts / frequency tables for specific columns
+
 i.e if a row in the csv says the following for the 'cool' column:
 cool,Count,Frequency
 0,17213,0.7918
