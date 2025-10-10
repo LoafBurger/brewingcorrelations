@@ -7,6 +7,7 @@ OUTPUT_CSV = "data/processed/starbucks_reviews_cleaned.csv"
 df = pd.read_csv(INPUT_CSV)
 
 
+# Convert time to number of hours
 def hours_from_range(time_range):
     try:
         start_str, end_str = time_range.split("-")
@@ -18,10 +19,6 @@ def hours_from_range(time_range):
         return diff
     except Exception:
         return None
-
-
-# df['hours'] = df['time_range'].apply(hours_from_range)
-# print(df)
 
 
 # Fill missing values and drop irrelevant columns
