@@ -2,7 +2,7 @@ import pandas as pd
 
 # load the flattened CSV
 INPUT_CSV = "data/processed/starbucks_reviews_flat_all.csv"
-OUTPUT_CSV = "data\processed\starbucks_reviews_cleaned.csv"
+OUTPUT_CSV = "data/processed/starbucks_reviews_cleaned.csv"
 df = pd.read_csv(INPUT_CSV)
 
 
