@@ -7,7 +7,7 @@ library(hms)
 library(sf) # geospatial data wrangling
 library(leaflet)
 
-setwd("//Users//VihaanVajpayee//Desktop//Purdue Acedemics//Senior Year Semester One//CS 441//project_folder//brewingcorrelations")
+setwd("path-to-directory")
 
 df <- read.csv("data/processed/starbucks_reviews_flat.csv")
 
