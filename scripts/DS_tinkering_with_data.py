@@ -42,4 +42,6 @@ print(df["stars"].value_counts())
 
 print()
 row = df.iloc[0]
+# print(f"Count of Rows: {len(row)}")
 print(row)
+# print(row["text"])

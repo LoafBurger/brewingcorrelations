@@ -15,6 +15,7 @@ def load_and_flatten(json_file):
     # flatten user info
     user_df = pd.json_normalize(df["user_info"]).add_prefix("user_")
     df = df.drop(columns=["user_info"]).join(user_df)
+    df = df.drop(columns=["user_user_id"])
 
     return df
 
