@@ -38,7 +38,7 @@ def enrich_review_features():
 
     for i, review in tqdm(enumerate(df_input["text"].tolist()), total=len(df_input)):
         prompt = f"""
-        You are a helpful assistant that analyzes Starbucks reviews. 
+        You are a helpful assistant that analyzes Starbucks reviews.
         Given the following review, rate the following features on a scale from 0 to 1, where 0 is very poor and 1 is excellent:
         1. Quality of food & drinks
         2. Quality of customer service
