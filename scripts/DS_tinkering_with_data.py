@@ -6,7 +6,10 @@ Order of running scripts:
     ├── DE_enrich_reviews.py
     ├── DE_enrich_users.py
     ├── DE_prepare_analysis.py
-    └── DS_tinkering_with_data.py
+    ├── DS_tinkering_with_data.py
+    ├── DE_enrich_population_density.py
+    ├── DE_enrich_review_features.py
+    └── DE_fix_missing.py
 
 RUN THIS WHEN YOU FIRST CLONE:
 pip install -r requirements.txt (helps get all the packages you need and the respective versions for standardization)

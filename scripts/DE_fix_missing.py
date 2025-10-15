@@ -2,7 +2,7 @@ import pandas as pd
 from datetime import datetime, timedelta
 
 # load the flattened CSV
-INPUT_CSV = "data/processed/starbucks_reviews_flat_all.csv"
+INPUT_CSV = "data/processed/starbucks_reviews_flat_with_review_features.csv"
 OUTPUT_CSV = "data/processed/starbucks_reviews_cleaned.csv"
 df = pd.read_csv(INPUT_CSV)
 
