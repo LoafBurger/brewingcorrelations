@@ -1,6 +1,6 @@
 import pandas as pd
 
-INPUT_FILE = "data/processed/checkpoint_starbucks_reviews_with_features.csv"
+INPUT_FILE = "data/processed/starbucks_reviews_cleaned.csv"
 
 df = pd.read_csv(INPUT_FILE)
 
