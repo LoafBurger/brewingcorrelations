@@ -29,6 +29,9 @@ df["business_attributes.OutdoorSeating"] = df[
 df["business_attributes.RestaurantsTakeOut"] = df[
     "business_attributes.RestaurantsTakeOut"
 ].fillna(True)
+df["business_attributes.RestaurantsDelivery"] = df[
+    "business_attributes.RestaurantsDelivery"
+].fillna(False)
 
 df = df.drop("business_hours", axis=1)
 df["business_attributes.BusinessAcceptsCreditCards"] = df[
