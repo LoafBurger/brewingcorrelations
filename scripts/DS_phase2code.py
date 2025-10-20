@@ -7,7 +7,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 # load the flattened CSV
-csv_file = "data/processed/starbucks_reviews_flat.csv"
+csv_file = "data/processed/final_cleaned_data.csv"
 df = pd.read_csv(csv_file)
 
 # getting the timeline of the data, how many years of history (for the report)
